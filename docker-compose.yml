@@ -1,0 +1,31 @@
+version: '1'
+services:
+  app:
+    build: app.py
+    ports:
+      - "8000:8000"
+  app-1:
+    build: app1.py
+    ports:
+      - "8001:8000"
+  app-2:
+    build: msapp2.py
+    ports:
+      - "8002:8000"
+  app-4:
+    build: msapp4.py
+    ports:
+      - "8003:8000"
+  app-8:
+    build: msapp8.py
+    ports:
+      - "8004:8000"
+  app-16:
+    build: msapp16.py
+    ports:
+      - "8005:8000"
+  app-32:
+    build: msapp32.py
+    ports:
+      - "8006:8000"
+      
