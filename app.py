@@ -1,5 +1,6 @@
 
 from datetime import datetime
+import matplotlib.pyplot as plt
 total_serial_time_start = datetime.now()
 def calculate_pi_x(x, data_file):
     closest_x = None
@@ -30,7 +31,7 @@ for insta in insta_ary:
             lines=f.readline()
             s = lines.split()
         if(x>float(s[0])):
-            print("found from : "+str(i)+" th chunk")
+            print("output found from : "+str(i)+" th chunk")
             data_file = f'{no_of_instances}_instances/output_{no_of_instances}_{i}.txt'
             break
 
@@ -82,3 +83,40 @@ for i in range(0,5):
 
 
 
+# from flask import Flask, request, jsonify
+# app = Flask(__name__)
+
+# @app.route('/calculate_pi', methods=['POST'])
+# def calculate_pi_route():
+#     data = request.get_json()
+#     x = data['x']
+#     pi_x = int(closest_x)
+#     response = {
+#         'pi_x': pi_x
+#     }
+#     return jsonify(response)
+
+# if __name__ == '__main__':
+#     app.run(host='0.0.0.0', port=8000)
+plt_data = gustafson_speedup
+plt.plot(plt_data)
+plt.xlabel('instances ')
+plt.ylabel('time scale')
+plt.title('gustafsons speedup')
+plt.show()
+
+plt_data = gustafson_speedup
+labels =[2,4,8,16,32]
+plt.bar(labels, plt_data)
+plt.xlabel('instances ')
+plt.ylabel('time scale')
+plt.title('gustafsons speedup')
+plt.show()
+
+plt_data = gustafson_efficiency
+labels =[2,4,8,16,32]
+plt.bar(labels, plt_data)
+plt.xlabel('instances ')
+plt.ylabel('time scale(inversly proportional)')
+plt.title('gustafsons efficiency')
+plt.show()
